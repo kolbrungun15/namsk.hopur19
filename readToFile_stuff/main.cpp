@@ -15,20 +15,19 @@ int main(int argc, char *argv[])
 
 void readToFile()
 {
-    ofstream out_stream;
+    ifstream in_stream("infile.txt");
     string word;
 
-    out_stream.open("outfile.txt");
-    if (out_stream.fail())
+    if (in_stream.fail())
     {
         cout << "Output file opening failed" << endl;
         exit(1);
     }
-    while(out_stream)
+    while(in_stream >> word)
     {
-        out_stream << word << " ";
+        cout << word << " ";
     }
-    out_stream.close();
+    in_stream.close();
 }
 
 
