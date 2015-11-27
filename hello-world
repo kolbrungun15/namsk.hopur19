@@ -4,6 +4,13 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    a == "Hello World";
+    
+    print(a);
+    
     return 0;
+}
+
+void print(a){
+    cout << a << endl;
 }
