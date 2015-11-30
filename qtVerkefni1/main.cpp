@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
+#include <list>
 #include "famouspersons.h"
 
 using namespace std;
@@ -51,6 +52,7 @@ void whatToDo(int choice)
             break;
         case 3:
             searchList();
+            readFromFile();
             /* Hér kemur fall sem leitar að streng í listanum.
              * Prentar út mannsekju ef hún er fundin.*/
             break;
@@ -77,8 +79,8 @@ void addToList()
     cin >> yearOfDeath;
 
     FamousPersons temp(name, gender, yearOfBirth, yearOfDeath);
-    vector <FamousPersons> vec; //ath vectorinn aetti kannski ad vera annarstadar...
-    vec.push_back(temp);
+    list <FamousPersons> lis; //ath vectorinn aetti kannski ad vera annarstadar...
+    lis.push_back(temp);
 }
 
 int displayListMenu()
@@ -105,7 +107,7 @@ void readToFile()
     ofstream out_stream;
     string word;
 
-    out_stream.open("outfile.txt");
+    out_stream.open("csLeagends.txt");
     if (out_stream.fail())
     {
         cout << "Output file opening failed" << endl;
@@ -120,7 +122,7 @@ void readToFile()
 
 void readFromFile()
 {
-    ifstream in_stream("infile.txt");
+    ifstream in_stream("csLeagends.txt");
     string word;
 
     if (in_stream.fail())
