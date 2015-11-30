@@ -12,6 +12,7 @@ using namespace std;
 int mainMenu();
 void addToList();
 int displayListMenu();
+void newReadTofile(FamousPersons &temp);
 void searchList();
 void readToFile();
 void readFromFile();
@@ -81,8 +82,27 @@ void addToList()
     cin >> yearOfDeath;
 
     FamousPersons temp(firstName, lastName, gender, yearOfBirth, yearOfDeath);
+    newReadTofile(temp);
     list <FamousPersons> lis; //ath listinn aetti kannski ad vera annarstadar...
     lis.push_back(temp);
+}
+
+void newReadTofile(FamousPersons &temp)
+{
+    ofstream out_stream;
+
+    out_stream.open("csLeagends.txt");
+    if (out_stream.fail())
+    {
+        cout << "Output file opening failed" << endl;
+        exit(1);
+    }
+    out_stream << "First name: " << temp.getFirstName() << endl;
+    out_stream << "Last name: " << temp.getLastName() << endl;
+    out_stream << "Gender (male/female): " << temp.getGender() << endl;
+    out_stream << "Year of birth: " << temp.getYearOfBirth() << endl;
+    out_stream << "Year of death: " << temp.getYearOfDeath() << endl;
+    out_stream.close();
 }
 
 int displayListMenu()
@@ -104,7 +124,7 @@ void searchList()
     //tharf ad utfaera
 }
 
-void readToFile()
+/*void readToFile()
 {
     ofstream out_stream;
     string word;
@@ -121,7 +141,7 @@ void readToFile()
     }
     out_stream.close();
 }
-
+*/
 void readFromFile()
 {
     ifstream in_stream("csLeagends.txt");
