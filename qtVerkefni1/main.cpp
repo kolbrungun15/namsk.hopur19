@@ -8,41 +8,30 @@
 
 using namespace std;
 
+int mainMenu();
 void readToFile();
 void readFromFile();
 
-int main() {
 
-    int nr;
-    string a, b, c, d;
+int main()
+{
+    int firstChoice = mainMenu();
+}
 
-    cout << "----------" << "Famous Programming Persons" << "----------" << endl;
-    cout << "The program lets you document the name, gender, date of birth and date of death of a person" << endl;
+int mainMenu()
+{
+    int choice = 0;
 
-    cout << "How many persons do you want to document:";
+    cout << "--------------------FAMOUS PROGRAMMERS--------------------" << endl;
+    cout << "-----------------------Main menu--------------------------" << endl;
+    cout << "(1) Add to list" << endl;
+    cout << "(2) Display list" << endl;
+    cout << "(3) Search list" << endl;
+    //cout << "(4) Edit list" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
 
-    cin >> nr;
-
-    for (int i = 0; i <= nr; i++){
-
-        cout << "First write the name of the person:" << endl;
-
-        cin >> a;
-
-        cout << "Now write the gender:" << endl;
-
-        cin >> b;
-
-        cout << "Then the date of birth:" << endl;
-
-        cin >> c;
-
-        cout << "and at last write the date of death (if he/she is deceased):" << endl;
-        //Þarf að búa til lykkju í kringum ef hann er lifandi!
-        cin >> d;
-    }
-
-
+    return choice;
 }
 
 void readToFile()
