@@ -24,7 +24,7 @@ public:
     string getYearOfDeath();
 
 
-   // friend ostream& operator << (ostream& outs, const FamousPersons &n);
+   friend ostream& operator << (ostream& outs, const FamousPersons &n);
    // friend istream& operator >>(istream& ins, FamousPersons &n);
 
 private:

@@ -9,7 +9,7 @@
 using namespace std;
 
 int mainMenu();
-FamousPersons addToList();
+void addToList();
 int displayListMenu();
 void searchList();
 void readToFile();
@@ -50,7 +50,7 @@ void whatToDo(int choice)
              * notandi valdi. */
             break;
         case 3:
-            void searchList();
+            searchList();
             /* Hér kemur fall sem leitar að streng í listanum.
              * Prentar út mannsekju ef hún er fundin.*/
             break;
@@ -61,7 +61,7 @@ void whatToDo(int choice)
     }
 }
 
-FamousPersons addToList()
+void addToList()
 {
 
     string name = " ", gender = " ", yearOfBirth = " ", yearOfDeath = " ";
@@ -77,9 +77,8 @@ FamousPersons addToList()
     cin >> yearOfDeath;
 
     FamousPersons temp(name, gender, yearOfBirth, yearOfDeath);
-
-    return temp;
-
+    vector <FamousPersons> vec; //ath vectorinn aetti kannski ad vera annarstadar...
+    vec.push_back(temp);
 }
 
 int displayListMenu()
