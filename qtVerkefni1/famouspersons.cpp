@@ -8,26 +8,28 @@
 using namespace std;
 
 FamousPersons::FamousPersons() {
-    name = "";
+    firstName = "";
+    lastName = "";
     gender = "";
     yearOfBirth = "";
     yearOfDeath = "";
 }
 
-FamousPersons::FamousPersons(string newName, string newGender, string whenBorn, string whenDied) {
-    name = newName;
+FamousPersons::FamousPersons(string newFirstName, string newLastName, string newGender, string whenBorn, string whenDied) {
+    firstName = newFirstName;
+    lastName = newLastName;
     gender = newGender;
     yearOfBirth = whenBorn;
     yearOfDeath = whenDied;
 }
 
-void FamousPersons::setName(string newName) {
+/*void FamousPersons::setName(string newName) {
     name = newName;
-}
+}*/
 
-string FamousPersons::getName() {
+/*string FamousPersons::getName() {
     return name;
-}
+}*/
 
 void FamousPersons::setGender(string newGender) {
     gender = newGender;
@@ -54,8 +56,9 @@ string FamousPersons::getYearOfDeath() {
 }
 
 ostream& operator << (ostream& outs, const FamousPersons &n){
-    cout << "Name: " << n.name << endl;
-    cout << "Gender: " << n.gender << endl;
+    cout << "First name: " << n.firstName << endl;
+    cout << "Last name: " << n.lastName << endl;
+    cout << "Gender (male/female): " << n.gender << endl;
     cout << "Year of birth: " << n.yearOfBirth << endl;
     cout << "Year of death: " << n.yearOfDeath << endl;
 

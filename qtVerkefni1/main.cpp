@@ -66,11 +66,13 @@ void whatToDo(int choice)
 void addToList()
 {
 
-    string name = " ", gender = " ", yearOfBirth = " ", yearOfDeath = " ";
+    string firstName = " ", lastName = " ", gender = " ", yearOfBirth = " ", yearOfDeath = " ";
 
     cout << "Now add a person to the list:" << endl;
-    cout << "Enter name: ";
-    cin >> name;
+    cout << "Enter first name: ";
+    cin >> firstName;
+    cout << "Enter last name: ";
+    cin >> lastName;
     cout << "Enter gender: ";
     cin >> gender;
     cout << "Enter year of birth: ";
@@ -78,8 +80,8 @@ void addToList()
     cout << "Enter year of death: ";
     cin >> yearOfDeath;
 
-    FamousPersons temp(name, gender, yearOfBirth, yearOfDeath);
-    list <FamousPersons> lis; //ath vectorinn aetti kannski ad vera annarstadar...
+    FamousPersons temp(firstName, lastName, gender, yearOfBirth, yearOfDeath);
+    list <FamousPersons> lis; //ath listinn aetti kannski ad vera annarstadar...
     lis.push_back(temp);
 }
 

@@ -12,15 +12,15 @@ class FamousPersons {
 
 public:
     FamousPersons();
-    FamousPersons(string newName, string newGender, string whenBorn, string whenDied);
+    FamousPersons(string newFirstName, string newLastName, string newGender, string whenBorn, string whenDied);
 
-    void setName(string newName);
+    void setName(string newName); //otharft?
     string getName();
-    void setGender(string newGender);
+    void setGender(string newGender); //otharft?
     string getGender();
-    void setYearOfBirth(string whenBorn);
+    void setYearOfBirth(string whenBorn); //otharft?
     string getYearOfBirth();
-    void setYearOfDeath(string whenDied);
+    void setYearOfDeath(string whenDied); //otharft?
     string getYearOfDeath();
 
 
@@ -28,7 +28,8 @@ public:
    // friend istream& operator >>(istream& ins, FamousPersons &n);
 
 private:
-    string name;
+    string firstName;
+    string lastName;
     string gender;
     string yearOfBirth;
     string yearOfDeath;
