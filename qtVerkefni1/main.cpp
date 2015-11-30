@@ -10,6 +10,7 @@ using namespace std;
 
 int mainMenu();
 FamousPersons addToList();
+int orderMenu();
 void readToFile();
 void readFromFile();
 void whatToDo(int choice);
@@ -30,6 +31,38 @@ int mainMenu()
     cout << "(2) Display list" << endl;
     cout << "(3) Search list" << endl;
     //cout << "(4) Edit list" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    return choice;
+}
+
+void whatToDo(int choice)
+{
+    switch(choice) {
+        case 1:
+            addToList();
+        case 2:
+            /* Byrjar á að spyr hvort notandi vilji raða listanum
+             * kallar á fall sem prentar út listann í þeirri röð sem
+             * notandi valdi. */
+        case 3:
+            /* Hér kemur fall sem leitar að streng í listanum.
+             * Prentar út mannsekju ef hún er fundin.*/
+        default:
+            cout << "Not a valid choice!";
+
+    }
+}
+
+int orderMenu()
+{
+    int choice = 0;
+
+    cout << "How would you like to organize the list?" << endl;
+    cout << "(1) Alphabetical" << endl;
+    cout << "(2) Chornological" << endl;
+    //osfrv
     cout << "Enter your choice: ";
     cin >> choice;
 
@@ -91,20 +124,4 @@ void readFromFile()
     }
     in_stream.close();
 }
-void whatToDo(int choice)
-{
-    switch(choice) {
-        case 1:
-            addToList();
-        case 2:
-            /* Byrjar á að spyr hvort notandi vilji raða listanum
-             * kallar á fall sem prentar út listann í þeirri röð sem
-             * notandi valdi. */
-        case 3:
-            /* Hér kemur fall sem leitar að streng í listanum.
-             * Prentar út mannsekju ef hún er fundin.*/
-        default:
-            cout << "Not a valid choice!";
 
-    }
-}
