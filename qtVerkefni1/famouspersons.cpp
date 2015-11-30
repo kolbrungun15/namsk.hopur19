@@ -7,7 +7,8 @@
 
 using namespace std;
 
-FamousPersons::FamousPersons() {
+FamousPersons::FamousPersons()
+{
     firstName = "";
     lastName = "";
     gender = "";
@@ -15,7 +16,8 @@ FamousPersons::FamousPersons() {
     yearOfDeath = "";
 }
 
-FamousPersons::FamousPersons(string newFirstName, string newLastName, string newGender, string whenBorn, string whenDied) {
+FamousPersons::FamousPersons(string newFirstName, string newLastName, string newGender, string whenBorn, string whenDied)
+{
     firstName = newFirstName;
     lastName = newLastName;
     gender = newGender;
@@ -23,39 +25,53 @@ FamousPersons::FamousPersons(string newFirstName, string newLastName, string new
     yearOfDeath = whenDied;
 }
 
-/*void FamousPersons::setName(string newName) {
+/*void FamousPersons::setName(string newName)
+{
     name = newName;
 }*/
 
-/*string FamousPersons::getName() {
-    return name;
-}*/
+string FamousPersons::getFirstName()
+{
+    return firstName;
+}
 
-void FamousPersons::setGender(string newGender) {
+string FamousPersons::getLastName()
+{
+    return lastName;
+}
+
+void FamousPersons::setGender(string newGender)
+{
     gender = newGender;
 }
 
-string FamousPersons::getGender() {
+string FamousPersons::getGender()
+{
     return gender;
 }
 
-void FamousPersons::setYearOfBirth(string whenBorn) {
+void FamousPersons::setYearOfBirth(string whenBorn)
+{
     yearOfBirth = whenBorn;
 }
 
-string FamousPersons::getYearOfBirth() {
+string FamousPersons::getYearOfBirth()
+{
     return yearOfBirth;
 }
 
-void FamousPersons::setYearOfDeath(string whenDied) {
+void FamousPersons::setYearOfDeath(string whenDied)
+{
     yearOfDeath = whenDied;
 }
 
-string FamousPersons::getYearOfDeath() {
+string FamousPersons::getYearOfDeath()
+{
     return yearOfDeath;
 }
 
-ostream& operator << (ostream& outs, const FamousPersons &n){
+ostream& operator << (ostream& outs, const FamousPersons &n)
+{
     cout << "First name: " << n.firstName << endl;
     cout << "Last name: " << n.lastName << endl;
     cout << "Gender (male/female): " << n.gender << endl;
@@ -67,7 +83,6 @@ ostream& operator << (ostream& outs, const FamousPersons &n){
 
 /*
 istream& operator >>(istream& ins, FamousPersons &n)
-
 {
     ins >> n.name;
     ins >> n.gender;

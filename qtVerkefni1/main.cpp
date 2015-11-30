@@ -28,7 +28,7 @@ int mainMenu()
     int choice = 0;
 
     cout << "--------------------FAMOUS PROGRAMMERS--------------------" << endl;
-    cout << "-----------------------Main menu--------------------------" << endl;
+    cout << "------------------------Main menu-------------------------" << endl;
     cout << "(1) Add to list" << endl;
     cout << "(2) Display list" << endl;
     cout << "(3) Search list" << endl;
