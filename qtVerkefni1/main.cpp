@@ -10,7 +10,7 @@
 using namespace std;
 
 int mainMenu();
-void addToList(vector<FamousPersons> &vec);
+bool addToList(vector<FamousPersons> &vec);
 int displayListMenu();
 void newReadTofile(FamousPersons &temp);
 void searchList();
@@ -44,11 +44,10 @@ int mainMenu()
 
 void whatToDo(int choice, vector<FamousPersons> &vec)
 {
-    int result = 0;
+    bool result = true;
     switch(choice) {
         case 1:
-            result = howManyPersons();
-            for(int i = 0; i < result; i++){
+            while(result){
                 addToList(vec); //Bætir við frægri manneskju við listann
             }
             break;
@@ -70,7 +69,7 @@ void whatToDo(int choice, vector<FamousPersons> &vec)
     }
 }
 
-void addToList(vector<FamousPersons> &vec)
+bool addToList(vector<FamousPersons> &vec)
 {
     string firstName = " ", lastName = " ", gender = " ", yearOfBirth = " ", yearOfDeath = " ";
 
@@ -90,6 +89,16 @@ void addToList(vector<FamousPersons> &vec)
     newReadTofile(temp);
 
     vec.push_back(temp);
+
+    char continueYN = 'k';
+    cout << "Do you want to continue (y/n)?";
+    cin >> continueYN;
+    if(continueYN == 'y'){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 void newReadTofile(FamousPersons &temp)
