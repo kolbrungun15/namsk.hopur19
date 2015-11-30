@@ -9,6 +9,7 @@
 using namespace std;
 
 int mainMenu();
+FamousPersons addToList();
 void readToFile();
 void readFromFile();
 
@@ -32,6 +33,27 @@ int mainMenu()
     cin >> choice;
 
     return choice;
+}
+
+FamousPersons addToList()
+{
+
+    string name = " ", gender = " ", yearOfBirth = " ", yearOfDeath = " ";
+
+    cout << "Now add a person to the list:" << endl;
+    cout << "Enter name: ";
+    cin >> name;
+    cout << "Enter gender: ";
+    cin >> gender;
+    cout << "Enter year of birth: ";
+    cin >> yearOfBirth;
+    cout << "Enter year of death: ";
+    cin >> yearOfDeath;
+
+    FamousPersons temp(name, gender, yearOfBirth, yearOfDeath);
+
+    return temp;
+
 }
 
 void readToFile()

@@ -1,4 +1,4 @@
-#ifndef PRINT_H
+/*#ifndef PRINT_H
 #define PRINT_H
 
 #include <iostream>
@@ -26,3 +26,4 @@ public: //Þetta er ekki rdy
 };
 
 #endif // PRINT_H
+*/
