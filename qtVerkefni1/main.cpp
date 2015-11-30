@@ -17,6 +17,7 @@ void searchList();
 void readToFile();
 void readFromFile();
 void whatToDo(int choice, vector<FamousPersons> &vec);
+int howManyPersons();
 
 int main()
 {
@@ -43,9 +44,13 @@ int mainMenu()
 
 void whatToDo(int choice, vector<FamousPersons> &vec)
 {
+    int result = 0;
     switch(choice) {
         case 1:
-            addToList(vec); //Bætir við frægri manneskju við listann
+            result = howManyPersons();
+            for(int i = 0; i < result; i++){
+                addToList(vec); //Bætir við frægri manneskju við listann
+            }
             break;
         case 2:
             displayListMenu();  //spyr notanda hvernig hann vill raða listanum.
@@ -157,4 +162,11 @@ void readFromFile()
         cout << word << " ";
     }
     in_stream.close();
+}
+
+int howManyPersons(){
+    int number;
+    cout << "How many people do you want to input?";
+    cin >> number;
+    return number;
 }
