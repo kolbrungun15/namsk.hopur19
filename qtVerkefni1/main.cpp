@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
+#include <famouspersons.h>
 
 using namespace std;
 

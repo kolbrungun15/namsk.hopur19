@@ -6,7 +6,7 @@
 #include <cstdlib>
 
 using namespace std;
-
+/*
 Print::Print() {
     //Vantar
 }
@@ -42,3 +42,4 @@ Print::Birta_lista(){
 Print::Save_file(){
     //Vantar
 }
+*/

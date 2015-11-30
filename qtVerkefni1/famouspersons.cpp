@@ -61,8 +61,13 @@ ostream& operator << (ostream& outs, const FamousPersons &n){
 
     return outs;
 }
+istream& operator >>(istream& ins, FamousPersons &n)
 
-//istream& operator >> (istream& ins, FamousPersons &n){
-    // Vantar
-    // Viljum vid geta skrifad personur inn svona?
-//}
+{
+    ins >> n.name;
+    ins >> n.gender;
+    ins >> n.yearOfBirth;
+    ins >> n.yearOfDeath;
+
+    return ins;
+}
