@@ -10,7 +10,7 @@
 using namespace std;
 
 int mainMenu();
-void addToList();
+void addToList(); //Hérna er breyting
 int displayListMenu();
 void newReadTofile(FamousPersons &temp);
 void searchList();
