@@ -4,24 +4,25 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
-#include <list>
+#include <vector>
 #include "famouspersons.h"
 
 using namespace std;
 
 int mainMenu();
-void addToList(); //Hérna er breyting
+void addToList(vector<FamousPersons> &vec);
 int displayListMenu();
 void newReadTofile(FamousPersons &temp);
 void searchList();
 void readToFile();
 void readFromFile();
-void whatToDo(int choice);
+void whatToDo(int choice, vector<FamousPersons> &vec);
 
 int main()
 {
+    vector<FamousPersons> vec;
     int firstChoice = mainMenu();
-    whatToDo(firstChoice);
+    whatToDo(firstChoice, vec);
 }
 
 int mainMenu()
@@ -40,15 +41,15 @@ int mainMenu()
     return choice;
 }
 
-void whatToDo(int choice)
+void whatToDo(int choice, vector<FamousPersons> &vec)
 {
     switch(choice) {
         case 1:
-            addToList();
+            addToList(vec); //Bætir við frægri manneskju við listann
             break;
         case 2:
             displayListMenu();  //spyr notanda hvernig hann vill raða listanum.
-             /* * kallar á fall sem prentar út listann í þeirri röð sem
+            /* * kallar á fall sem prentar út listann í þeirri röð sem
              * notandi valdi. */
             break;
         case 3:
@@ -64,9 +65,8 @@ void whatToDo(int choice)
     }
 }
 
-void addToList()
+void addToList(vector<FamousPersons> &vec)
 {
-
     string firstName = " ", lastName = " ", gender = " ", yearOfBirth = " ", yearOfDeath = " ";
 
     cout << "Now add a person to the list:" << endl;
@@ -83,8 +83,8 @@ void addToList()
 
     FamousPersons temp(firstName, lastName, gender, yearOfBirth, yearOfDeath);
     newReadTofile(temp);
-    list <FamousPersons> lis; //ath listinn aetti kannski ad vera annarstadar...
-    lis.push_back(temp);
+
+    vec.push_back(temp);
 }
 
 void newReadTofile(FamousPersons &temp)
@@ -158,4 +158,3 @@ void readFromFile()
     }
     in_stream.close();
 }
-
