@@ -53,6 +53,7 @@ string FamousPersons::getYearOfDeath() {
     return yearOfDeath;
 }
 
+/*
 ostream& operator << (ostream& outs, const FamousPersons &n){
     cout << "Name: " << n.name << endl;
     cout << "Gender: " << n.gender << endl;
@@ -71,3 +72,4 @@ istream& operator >>(istream& ins, FamousPersons &n)
 
     return ins;
 }
+*/

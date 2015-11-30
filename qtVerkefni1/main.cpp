@@ -12,11 +12,12 @@ int mainMenu();
 FamousPersons addToList();
 void readToFile();
 void readFromFile();
-
+void whatToDo(int choice);
 
 int main()
 {
     int firstChoice = mainMenu();
+    whatToDo(firstChoice);
 }
 
 int mainMenu()
@@ -89,4 +90,21 @@ void readFromFile()
         cout << word << " ";
     }
     in_stream.close();
+}
+void whatToDo(int choice)
+{
+    switch(choice) {
+        case 1:
+            addToList();
+        case 2:
+            /* Byrjar á að spyr hvort notandi vilji raða listanum
+             * kallar á fall sem prentar út listann í þeirri röð sem
+             * notandi valdi. */
+        case 3:
+            /* Hér kemur fall sem leitar að streng í listanum.
+             * Prentar út mannsekju ef hún er fundin.*/
+        default:
+            cout << "Not a valid choice!";
+
+    }
 }
