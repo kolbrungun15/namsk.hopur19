@@ -18,21 +18,22 @@ using namespace std;
 int mainMenu();
 bool whatToDo(int choice, vector<FamousPersons> &vec);
 int displayListMenu();
-void display(vector <FamousPersons> &vec);
+void display(int choice, vector <FamousPersons> &vec);
 void Alphabetically();
 void Chronologically();
+void displayList(vector <FamousPersons> &vec);
 
 int searchMenu();
 void searchList(vector <FamousPersons> &vec);
 
 bool addToList(vector<FamousPersons> &vec);
-void newReadTofile(FamousPersons &temp);
-void readToFile(vector <FamousPersons> &vec);
+void readToFile(FamousPersons &temp);
+//void readToFile(vector <FamousPersons> &vec);
 void readFromFile(vector <FamousPersons> &vec);
 bool whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
 bool doYouWantToContinue(); //Spyr hvort notandi vilji halda áfram
-void readFromFile();
+void readFromFile(vector<FamousPersons> &vec);
 bool doYouWantToContinue();
 
 
@@ -43,13 +44,12 @@ bool doYouWantToContinue();
 int main()
 {
     bool runWhileTrue = true;
-    vector<FamousPersons> vec;
-
-    readFromFile(vec);
+    vector<FamousPersons> PersonVector;
+    readFromFile(PersonVector);
 
     while(runWhileTrue){
         int firstChoice = mainMenu();
-        runWhileTrue = whatToDo(firstChoice, vec);
+        runWhileTrue = whatToDo(firstChoice, PersonVector);
     }
 }
 
@@ -80,6 +80,7 @@ int mainMenu()
 
 bool whatToDo(int choice, vector<FamousPersons> &vec)
 {
+    int c = 0;
     bool result = true;
     bool continueProgram;
     switch(choice)
@@ -94,7 +95,9 @@ bool whatToDo(int choice, vector<FamousPersons> &vec)
             break;
 
         case 2:
-            displayListMenu();  //spyr notanda hvernig hann vill raða listanum.
+            c = displayListMenu();
+            display(c, vec);
+            //spyr notanda hvernig hann vill raða listanum.
             /* * kallar á fall sem prentar út listann í þeirri röð sem
              * notandi valdi. */
             break;
@@ -136,7 +139,8 @@ int displayListMenu()
     cout << "(1) Alphabetical" << endl;
     cout << "(2) Chronologically" << endl;
     cout << "(3) By Gender" << endl;
-    cout << "(4) Do you want to continue organizing or go back to main menu?" << endl;
+    cout << "(4) View as is" << endl;
+    cout << "(5) Back to main menu" << endl;
     cout << "Enter your choice: " << endl;
 
     cin >> choice;
@@ -144,9 +148,7 @@ int displayListMenu()
     return choice;
 }
 
-void display(vector <FamousPersons> &vec){
-
-    int choice = displayListMenu();
+void display(int choice, vector <FamousPersons> &vec){
 
     switch(choice)
     {
@@ -170,7 +172,11 @@ void display(vector <FamousPersons> &vec){
             break;
 
         case 4:
-            //Vantar að klára!
+            displayList(vec);
+            break;
+
+        case 5:
+            mainMenu();
             break;
 
         default:
@@ -228,6 +234,14 @@ void Chronologically()
             break;
     }
 
+}
+
+void displayList(vector <FamousPersons> &vec)
+{
+    for (unsigned int i = 0; i<vec.size(); i++)
+    {
+        cout << vec[i] << endl;
+    }
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -393,8 +407,7 @@ bool addToList(vector<FamousPersons> &vec)
     cin >> yearOfDeath;
 
     FamousPersons temp(firstName, lastName, gender, yearOfBirth, yearOfDeath);
-    vec.push_back(temp);
-    readToFile(vec);
+    readToFile(temp);
 
     char continueYN = 'k';
     cout << "Do you want to input another person(y/n)? ";
@@ -407,7 +420,7 @@ bool addToList(vector<FamousPersons> &vec)
     }
 }
 
-void newReadTofile(FamousPersons &temp)
+void readToFile(FamousPersons &temp)
 {
     ofstream out_stream;
 
@@ -426,13 +439,13 @@ void newReadTofile(FamousPersons &temp)
 }
 
 
-void readToFile(vector <FamousPersons> &vec)
+/*void readToFile(vector <FamousPersons> &vec)
 {
     for (unsigned int i = 0; i < vec.size(); i++)
     {
         newReadTofile(vec[i]);
     }
-}
+}*/
 
 void readFromFile(vector <FamousPersons> &vec) //Þetta fall skrifar skránna inn í vector
 {
@@ -453,6 +466,7 @@ void readFromFile(vector <FamousPersons> &vec) //Þetta fall skrifar skránna in
         //Breytur inní while lykkjunni
         FamousPersons temp;
         int commaCounter = 0;
+<<<<<<< HEAD
 
         for(int i = 0; i < line.length(); i++){     //Forlykkja sem rúllar í gegnum strenginn line
             if(line[i] == ',' || line[i] == '.'){   //Ef það kemur punktur eða komma fer orðið á undan inní viðeigandi breytu
@@ -460,6 +474,14 @@ void readFromFile(vector <FamousPersons> &vec) //Þetta fall skrifar skránna in
                      temp.setFirstName(word);   //Skrifar strengin word í first name breytuna í klasanum
                      commaCounter++;    //Hækkar kommu teljarann til að komast inn í næstu if setningu
                      word = "";     //Núllstillir strenginn word
+=======
+        for(int i = 0; i < line.length(); i++){
+            if(line[i] == ',' || line[i] == '.'){
+                if(commaCounter == 0){
+                     temp.setFirstName(word);
+                     commaCounter++;
+                     word = "";
+>>>>>>> origin/master
                 }
                 else if(commaCounter == 1){
                     temp.setLastName(word);
@@ -486,8 +508,12 @@ void readFromFile(vector <FamousPersons> &vec) //Þetta fall skrifar skránna in
                 word += line[i];
             }
         }
+<<<<<<< HEAD
         cout << temp;
         vec.push_back(temp); //Eftir að búið er að setja línuna í viðeigandi breytur í temp, er því bætt við aftast í vectorinn
+=======
+        vec.push_back(temp);
+>>>>>>> origin/master
     }
     in_stream.close(); //Straumnum er síðan lokað í lokin
 }
