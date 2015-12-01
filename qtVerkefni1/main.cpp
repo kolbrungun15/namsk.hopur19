@@ -172,13 +172,6 @@ void readFromFile()//þetta skjal skrifar ut a skja, thad tharf bara ad laga til
     in_stream.close();
 }
 
-int howManyPersons(){
-    int number;
-    cout << "How many people do you want to input?";
-    cin >> number;
-    return number;
-}
-
 bool doYouWantToContinue(){
     char continueProgram = 'y';
     cout << "Do you want to continue(y/n)? ";
