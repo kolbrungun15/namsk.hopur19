@@ -9,9 +9,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     famouspersons.cpp \
-    print.cpp
+    database.cpp
 
 HEADERS += \
     famouspersons.h \
-    print.h
+    database.h
 
