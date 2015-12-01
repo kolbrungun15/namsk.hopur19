@@ -25,10 +25,15 @@ FamousPersons::FamousPersons(string newFirstName, string newLastName, string new
     yearOfDeath = whenDied;
 }
 
-/*void FamousPersons::setName(string newName)
+void FamousPersons::setFirstName(string newFirstName)
 {
-    name = newName;
-}*/
+    firstName = newFirstName;
+}
+
+void FamousPersons::setLastName(string newLastName)
+{
+    firstName = newLastName;
+}
 
 string FamousPersons::getFirstName()
 {
