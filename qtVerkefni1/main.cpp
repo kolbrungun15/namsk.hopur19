@@ -32,7 +32,7 @@ void readFromFile(vector <FamousPersons> &vec);
 bool whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
 bool doYouWantToContinue(); //Spyr hvort notandi vilji halda áfram
-void readFromFile();
+void readFromFile(vector<FamousPersons> &vec);
 bool doYouWantToContinue();
 
 
@@ -43,13 +43,13 @@ bool doYouWantToContinue();
 int main()
 {
     bool runWhileTrue = true;
-    vector<FamousPersons> vec;
+    vector<FamousPersons> PersonVector;
 
-    readFromFile(vec);
+    readFromFile(PersonVector);
 
     while(runWhileTrue){
         int firstChoice = mainMenu();
-        runWhileTrue = whatToDo(firstChoice, vec);
+        runWhileTrue = whatToDo(firstChoice, PersonVector);
     }
 }
 
