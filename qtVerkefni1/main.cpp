@@ -146,25 +146,25 @@ void display(vector <FamousPersons> &vec){
     {
 
         case 1:
-
+            //Vantar að klára!
             Alphabetically();
 
             break;
 
         case 2:
-
+            //Vantar að klára!
             Chronologically();
 
             break;
 
         case 3:
-
+            //Vantar að klára!
 
 
             break;
 
         case 4:
-
+            //Vantar að klára!
             break;
 
         default:
@@ -186,10 +186,10 @@ void Alphabetically()
     switch(choice)
     {
         case 1:
-
+            //Vantar að klára!
             break;
         case 2:
-
+            //Vantar að klára!
             break;
         default:
             cout << "Not a valid choice!" << endl;
@@ -210,11 +210,11 @@ void Chronologically()
     switch(choice)
     {
         case 1:
-
+            //Vantar að klára!
             break;
 
         case 2:
-
+            //Vantar að klára!
             break;
 
         default:
@@ -228,7 +228,7 @@ void Chronologically()
 //------------------------------------------( Search Functions )-------------------------------------
 //---------------------------------------------------------------------------------------------------
 
-
+                            //Vantar að klára ALLAN ÞENNAN HLUTA! hálfklárað semsagt!
 int searchMenu(){
 
     int choice = 0;
