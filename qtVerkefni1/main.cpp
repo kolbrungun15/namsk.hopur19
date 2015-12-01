@@ -16,14 +16,20 @@ void newReadTofile(FamousPersons &temp);
 void searchList();
 void readToFile(vector <FamousPersons> &vec);
 void readFromFile();
-void whatToDo(int choice, vector<FamousPersons> &vec);
+bool whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
+bool doYouWantToContinue(); //Spyr hvort notandi vilji halda áfram
 
 int main()
 {
+    bool runWhileTrue = true;
     vector<FamousPersons> vec;
-    int firstChoice = mainMenu();
-    whatToDo(firstChoice, vec);
+    while(runWhileTrue){
+        int firstChoice = mainMenu();
+        runWhileTrue = whatToDo(firstChoice, vec);
+        cout << "Press q to close: ";
+
+    }
 }
 
 int mainMenu()
@@ -43,9 +49,10 @@ int mainMenu()
     return choice;
 }
 
-void whatToDo(int choice, vector<FamousPersons> &vec)
+bool whatToDo(int choice, vector<FamousPersons> &vec)
 {
     bool result = true;
+    bool continueProgram;
     switch(choice) {
         case 1:
 
@@ -68,8 +75,9 @@ void whatToDo(int choice, vector<FamousPersons> &vec)
         default:
             cout << "Not a valid choice!";
             break;
-
     }
+    continueProgram = doYouWantToContinue();
+    return continueProgram;
 }
 
 bool addToList(vector<FamousPersons> &vec)
@@ -93,7 +101,7 @@ bool addToList(vector<FamousPersons> &vec)
     readToFile(vec);
 
     char continueYN = 'k';
-    cout << "Do you want to continue (y/n)?";
+    cout << "Do you want to input another person(y/n)? ";
     cin >> continueYN;
     if(continueYN == 'y'){
         return true;
@@ -171,4 +179,16 @@ int howManyPersons(){
     cout << "How many people do you want to input?";
     cin >> number;
     return number;
+}
+
+bool doYouWantToContinue(){
+    char continueProgram = 'y';
+    cout << "Do you want to continue(y/n)? ";
+    cin >> continueProgram;
+    if(continueProgram == 'y'){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
