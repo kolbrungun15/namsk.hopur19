@@ -452,7 +452,7 @@ void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, 
         FamousPersons temp;
         int commaCounter = 0;
         for(int i = 0; i < line.length(); i++){
-            if(line[i] == ','){
+            if(line[i] == ',' || line[i] == '.'){
                 if(commaCounter == 0){
                      temp.setFirstName(word);
                      commaCounter++;
