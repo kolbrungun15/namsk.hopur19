@@ -34,7 +34,6 @@ bool whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
 bool doYouWantToContinue(); //Spyr hvort notandi vilji halda áfram
 void readFromFile(vector<FamousPersons> &vec);
-bool doYouWantToContinue();
 
 
 //---------------------------------------------------------------------------------------------------
@@ -466,22 +465,13 @@ void readFromFile(vector <FamousPersons> &vec) //Þetta fall skrifar skránna in
         //Breytur inní while lykkjunni
         FamousPersons temp;
         int commaCounter = 0;
-<<<<<<< HEAD
 
-        for(int i = 0; i < line.length(); i++){     //Forlykkja sem rúllar í gegnum strenginn line
+        for(unsigned int i = 0; i < line.length(); i++){     //Forlykkja sem rúllar í gegnum strenginn line
             if(line[i] == ',' || line[i] == '.'){   //Ef það kemur punktur eða komma fer orðið á undan inní viðeigandi breytu
                 if(commaCounter == 0){  //til dæmis fer orðið á undan fyrstu kommunni inní firstName breytuna temp í klasanum o.s.frv
                      temp.setFirstName(word);   //Skrifar strengin word í first name breytuna í klasanum
                      commaCounter++;    //Hækkar kommu teljarann til að komast inn í næstu if setningu
                      word = "";     //Núllstillir strenginn word
-=======
-        for(int i = 0; i < line.length(); i++){
-            if(line[i] == ',' || line[i] == '.'){
-                if(commaCounter == 0){
-                     temp.setFirstName(word);
-                     commaCounter++;
-                     word = "";
->>>>>>> origin/master
                 }
                 else if(commaCounter == 1){
                     temp.setLastName(word);
@@ -508,17 +498,14 @@ void readFromFile(vector <FamousPersons> &vec) //Þetta fall skrifar skránna in
                 word += line[i];
             }
         }
-<<<<<<< HEAD
         cout << temp;
         vec.push_back(temp); //Eftir að búið er að setja línuna í viðeigandi breytur í temp, er því bætt við aftast í vectorinn
-=======
         vec.push_back(temp);
->>>>>>> origin/master
     }
     in_stream.close(); //Straumnum er síðan lokað í lokin
 }
 
-bool doYouWantToContinue(){  //Spurning að reyna að setja þetta framar í forritið
+bool doYouWantToContinue() {  //Spurning að reyna að setja þetta framar í forritið
     char continueProgram = 'y';
     cout << "Do you want to continue(y/n)? ";
     cin >> continueProgram;
