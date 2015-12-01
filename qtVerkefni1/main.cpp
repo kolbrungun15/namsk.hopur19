@@ -483,7 +483,6 @@ void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, 
                 word += line[i];
             }
         }
-        cout << temp;
         vec.push_back(temp);
     }
     in_stream.close();
