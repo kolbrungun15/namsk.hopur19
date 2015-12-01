@@ -1,5 +1,5 @@
-/*#ifndef PRINT_H
-#define PRINT_H
+#ifndef DATABASE_H
+#define DATABASE_H
 
 #include <iostream>
 #include <string>
@@ -8,22 +8,13 @@
 
 using namespace std;
 
-class Print {
+class Database {
 
-public: //Þetta er ekki rdy
-    Print();
+public:
+    Database();
 
-    Leita_i_lista();
+private:
 
-    Stafrofs_rod();
-    Stafrofs_rod_og_kyn();
-    Faedingarar_rod();
-    Daudaar_rod();
-
-    Birta_lista();
-
-    Save_file();
 };
 
-#endif // PRINT_H
-*/
+#endif // DATABASE_H
