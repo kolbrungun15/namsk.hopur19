@@ -18,7 +18,7 @@ using namespace std;
 int mainMenu();
 bool whatToDo(int choice, vector<FamousPersons> &vec);
 int displayListMenu();
-void display(vector <FamousPersons> &vec);
+void display(int choice, vector <FamousPersons> &vec);
 void Alphabetically();
 void Chronologically();
 void displayList(vector <FamousPersons> &vec);
@@ -45,7 +45,6 @@ int main()
 {
     bool runWhileTrue = true;
     vector<FamousPersons> PersonVector;
-
     readFromFile(PersonVector);
 
     while(runWhileTrue){
@@ -81,6 +80,7 @@ int mainMenu()
 
 bool whatToDo(int choice, vector<FamousPersons> &vec)
 {
+    int c = 0;
     bool result = true;
     bool continueProgram;
     switch(choice)
@@ -95,7 +95,9 @@ bool whatToDo(int choice, vector<FamousPersons> &vec)
             break;
 
         case 2:
-            displayListMenu();  //spyr notanda hvernig hann vill raða listanum.
+            c = displayListMenu();
+            display(c, vec);
+            //spyr notanda hvernig hann vill raða listanum.
             /* * kallar á fall sem prentar út listann í þeirri röð sem
              * notandi valdi. */
             break;
@@ -146,9 +148,7 @@ int displayListMenu()
     return choice;
 }
 
-void display(vector <FamousPersons> &vec){
-
-    int choice = displayListMenu();
+void display(int choice, vector <FamousPersons> &vec){
 
     switch(choice)
     {
