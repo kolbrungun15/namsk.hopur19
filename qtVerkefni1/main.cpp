@@ -21,7 +21,11 @@ int howManyPersons();
 
 int main()
 {
+<<<<<<< HEAD
 
+=======
+    readFromFile();
+>>>>>>> 3c2779785d0577e935c7785bfbbeabbe3d5efec2
     vector<FamousPersons> vec;
     int firstChoice = mainMenu();
     whatToDo(firstChoice, vec);
@@ -160,7 +164,7 @@ void searchList()
     out_stream.close();
 }
 */
-void readFromFile()
+void readFromFile()//þetta skjal skrifar ut a skja, thad tharf bara ad laga til, t.d. 'word'
 {
     ifstream in_stream("csLeagends.txt");
     string word;
