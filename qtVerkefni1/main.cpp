@@ -21,6 +21,7 @@ int howManyPersons();
 
 int main()
 {
+
     vector<FamousPersons> vec;
     int firstChoice = mainMenu();
     whatToDo(firstChoice, vec);
@@ -28,6 +29,7 @@ int main()
 
 int mainMenu()
 {
+
     int choice = 0;
 
     cout << "--------------------FAMOUS PROGRAMMERS--------------------" << endl;
@@ -47,9 +49,10 @@ void whatToDo(int choice, vector<FamousPersons> &vec)
     bool result = true;
     switch(choice) {
         case 1:
-            result = addToList(vec);
+
             while(result){
-                addToList(vec); //Bætir við frægri manneskju við listann
+                result = addToList(vec); //Bætir við frægri manneskju við listann
+
             }
             break;
         case 2:
