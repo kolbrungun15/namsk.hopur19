@@ -47,6 +47,7 @@ void whatToDo(int choice, vector<FamousPersons> &vec)
     bool result = true;
     switch(choice) {
         case 1:
+            result = addToList(vec);
             while(result){
                 addToList(vec); //Bætir við frægri manneskju við listann
             }
