@@ -32,7 +32,7 @@ void FamousPersons::setFirstName(string newFirstName)
 
 void FamousPersons::setLastName(string newLastName)
 {
-    firstName = newLastName;
+    lastName = newLastName;
 }
 
 string FamousPersons::getFirstName()
