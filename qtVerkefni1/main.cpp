@@ -434,29 +434,32 @@ void readToFile(vector <FamousPersons> &vec)
     }
 }
 
-void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, thad tharf bara ad laga til, t.d. 'word'
+void readFromFile(vector <FamousPersons> &vec) //Þetta fall skrifar skránna inn í vector
 {
 
-    ifstream in_stream("csLeagends.txt");
+    ifstream in_stream("csLeagends.txt"); //Opnar strím á skránna
+    //Breytur
     string line;
     string word;
 
 
-    if (in_stream.fail())
+    if (in_stream.fail())//Ef klúðrast að opna skránna þá skrifast út villuskilaboð
     {
         cout << "Input file opening failed" << endl;
         exit(1);
     }
     while(in_stream >> line)
     {
+        //Breytur inní while lykkjunni
         FamousPersons temp;
         int commaCounter = 0;
-        for(int i = 0; i < line.length(); i++){
-            if(line[i] == ','){
-                if(commaCounter == 0){
-                     temp.setFirstName(word);
-                     commaCounter++;
-                     word = "";
+
+        for(int i = 0; i < line.length(); i++){     //Forlykkja sem rúllar í gegnum strenginn line
+            if(line[i] == ',' || line[i] == '.'){   //Ef það kemur punktur eða komma fer orðið á undan inní viðeigandi breytu
+                if(commaCounter == 0){  //til dæmis fer orðið á undan fyrstu kommunni inní firstName breytuna temp í klasanum o.s.frv
+                     temp.setFirstName(word);   //Skrifar strengin word í first name breytuna í klasanum
+                     commaCounter++;    //Hækkar kommu teljarann til að komast inn í næstu if setningu
+                     word = "";     //Núllstillir strenginn word
                 }
                 else if(commaCounter == 1){
                     temp.setLastName(word);
@@ -479,17 +482,17 @@ void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, 
                     word = "";
                 }
             }
-            else{
+            else{ //Ef stafurinn er eitthvða annað en . eða , þá skrifast sá stafur inní strenginn word
                 word += line[i];
             }
         }
         cout << temp;
-        vec.push_back(temp);
+        vec.push_back(temp); //Eftir að búið er að setja línuna í viðeigandi breytur í temp, er því bætt við aftast í vectorinn
     }
-    in_stream.close();
+    in_stream.close(); //Straumnum er síðan lokað í lokin
 }
 
-bool doYouWantToContinue(){
+bool doYouWantToContinue(){  //Spurning að reyna að setja þetta framar í forritið
     char continueProgram = 'y';
     cout << "Do you want to continue(y/n)? ";
     cin >> continueProgram;
