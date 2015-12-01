@@ -14,18 +14,13 @@ bool addToList(vector<FamousPersons> &vec);
 int displayListMenu();
 void newReadTofile(FamousPersons &temp);
 void searchList();
-void readToFile();
+void readToFile(vector <FamousPersons> &vec);
 void readFromFile();
 void whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
 
 int main()
 {
-<<<<<<< HEAD
-
-=======
-    readFromFile();
->>>>>>> 3c2779785d0577e935c7785bfbbeabbe3d5efec2
     vector<FamousPersons> vec;
     int firstChoice = mainMenu();
     whatToDo(firstChoice, vec);
@@ -95,11 +90,7 @@ bool addToList(vector<FamousPersons> &vec)
 
     FamousPersons temp(firstName, lastName, gender, yearOfBirth, yearOfDeath);
     vec.push_back(temp);
-
-    for (unsigned int i = 0; i < vec.size(); i++)
-    {
-        newReadTofile(vec[i]);
-    }
+    readToFile(vec);
 
     char continueYN = 'k';
     cout << "Do you want to continue (y/n)?";
@@ -149,24 +140,14 @@ void searchList()
     //tharf ad utfaera
 }
 
-/*void readToFile()
+void readToFile(vector <FamousPersons> &vec)
 {
-    ofstream out_stream;
-    string word;
-
-    out_stream.open("csLeagends.txt");
-    if (out_stream.fail())
+    for (unsigned int i = 0; i < vec.size(); i++)
     {
-        cout << "Output file opening failed" << endl;
-        exit(1);
+        newReadTofile(vec[i]);
     }
-    while(out_stream)
-    {
-        out_stream << word << " ";
-    }
-    out_stream.close();
 }
-*/
+
 void readFromFile()//þetta skjal skrifar ut a skja, thad tharf bara ad laga til, t.d. 'word'
 {
     ifstream in_stream("csLeagends.txt");
