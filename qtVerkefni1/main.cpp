@@ -27,8 +27,6 @@ int main()
     while(runWhileTrue){
         int firstChoice = mainMenu();
         runWhileTrue = whatToDo(firstChoice, vec);
-        cout << "Press q to close: ";
-
     }
 }
 
