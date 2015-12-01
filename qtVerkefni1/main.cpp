@@ -107,7 +107,7 @@ void newReadTofile(FamousPersons &temp)
 {
     ofstream out_stream;
 
-    out_stream.open("csLeagends.txt");
+    out_stream.open("csLeagends.txt", ios::out | ios::app);
     if (out_stream.fail())
     {
         cout << "Output file opening failed" << endl;
@@ -118,6 +118,7 @@ void newReadTofile(FamousPersons &temp)
     out_stream << "Gender (male/female): " << temp.getGender() << endl;
     out_stream << "Year of birth: " << temp.getYearOfBirth() << endl;
     out_stream << "Year of death: " << temp.getYearOfDeath() << endl;
+    out_stream << endl;
     out_stream.close();
 }
 
