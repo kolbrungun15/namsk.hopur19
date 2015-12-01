@@ -21,13 +21,14 @@ int displayListMenu();
 void display(vector <FamousPersons> &vec);
 void Alphabetically();
 void Chronologically();
+void displayList(vector <FamousPersons> &vec);
 
 int searchMenu();
 void searchList(vector <FamousPersons> &vec);
 
 bool addToList(vector<FamousPersons> &vec);
-void newReadTofile(FamousPersons &temp);
-void readToFile(vector <FamousPersons> &vec);
+void readToFile(FamousPersons &temp);
+//void readToFile(vector <FamousPersons> &vec);
 void readFromFile(vector <FamousPersons> &vec);
 bool whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
@@ -136,7 +137,8 @@ int displayListMenu()
     cout << "(1) Alphabetical" << endl;
     cout << "(2) Chronologically" << endl;
     cout << "(3) By Gender" << endl;
-    cout << "(4) Do you want to continue organizing or go back to main menu?" << endl;
+    cout << "(4) View as is" << endl;
+    cout << "(5) Back to main menu" << endl;
     cout << "Enter your choice: " << endl;
 
     cin >> choice;
@@ -170,7 +172,11 @@ void display(vector <FamousPersons> &vec){
             break;
 
         case 4:
-            //Vantar að klára!
+            displayList(vec);
+            break;
+
+        case 5:
+            mainMenu();
             break;
 
         default:
@@ -228,6 +234,14 @@ void Chronologically()
             break;
     }
 
+}
+
+void displayList(vector <FamousPersons> &vec)
+{
+    for (unsigned int i = 0; i<vec.size(); i++)
+    {
+        cout << vec[i] << endl;
+    }
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -393,8 +407,7 @@ bool addToList(vector<FamousPersons> &vec)
     cin >> yearOfDeath;
 
     FamousPersons temp(firstName, lastName, gender, yearOfBirth, yearOfDeath);
-    vec.push_back(temp);
-    readToFile(vec);
+    readToFile(temp);
 
     char continueYN = 'k';
     cout << "Do you want to input another person(y/n)? ";
@@ -407,7 +420,7 @@ bool addToList(vector<FamousPersons> &vec)
     }
 }
 
-void newReadTofile(FamousPersons &temp)
+void readToFile(FamousPersons &temp)
 {
     ofstream out_stream;
 
@@ -426,13 +439,13 @@ void newReadTofile(FamousPersons &temp)
 }
 
 
-void readToFile(vector <FamousPersons> &vec)
+/*void readToFile(vector <FamousPersons> &vec)
 {
     for (unsigned int i = 0; i < vec.size(); i++)
     {
         newReadTofile(vec[i]);
     }
-}
+}*/
 
 void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, thad tharf bara ad laga til, t.d. 'word'
 {
