@@ -19,8 +19,8 @@ int mainMenu();
 bool whatToDo(int choice, vector<FamousPersons> &vec);
 int displayListMenu();
 void display(int choice, vector <FamousPersons> &vec);
-void Alphabetically();
-void Chronologically();
+void Alphabetically(vector <FamousPersons> &vec);
+void Chronologically(vector <FamousPersons> &vec);
 void displayList(vector <FamousPersons> &vec);
 
 int searchMenu();
@@ -28,12 +28,9 @@ void searchList(vector <FamousPersons> &vec);
 
 bool addToList(vector<FamousPersons> &vec);
 void readToFile(FamousPersons &temp);
-//void readToFile(vector <FamousPersons> &vec);
 void readFromFile(vector <FamousPersons> &vec);
-bool whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
-bool doYouWantToContinue(); //Spyr hvort notandi vilji halda áfram
-void readFromFile(vector<FamousPersons> &vec);
+bool doYouWantToContinue();
 
 
 //---------------------------------------------------------------------------------------------------
@@ -44,6 +41,7 @@ int main()
 {
     bool runWhileTrue = true;
     vector<FamousPersons> PersonVector;
+    
     readFromFile(PersonVector);
 
     while(runWhileTrue){
@@ -68,8 +66,7 @@ int mainMenu()
     cout << "(1) Add to list" << endl;
     cout << "(2) Display list" << endl;
     cout << "(3) Search list" << endl;
-    cout << "(4) Save list" << endl;
-    cout << "(5) Quit" << endl;
+    cout << "(4) Quit" << endl;
     cout << "Enter your choice: " << endl;
 
     cin >> choice;
@@ -95,24 +92,15 @@ bool whatToDo(int choice, vector<FamousPersons> &vec)
 
         case 2:
             c = displayListMenu();
-            display(c, vec);
-            //spyr notanda hvernig hann vill raða listanum.
-            /* * kallar á fall sem prentar út listann í þeirri röð sem
-             * notandi valdi. */
+            display(c, vec);        //spyr notanda hvernig hann vill raða listanum.
             break;
 
         case 3:
-            searchList(vec);
-            /* Hér kemur fall sem leitar að streng í listanum.
-             * Prentar út mannsekju ef hún er fundin.*/
+            searchList(vec);    // Hér kemur fall sem leitar að streng í listanum. Prentar út mannsekju ef hún er fundin.
             break;
 
         case 4:
-
-            break;
-
-        case 5:
-
+            exit(1);
             break;
 
         default:
@@ -135,10 +123,10 @@ int displayListMenu()
     cout << endl;
     cout << "---------- Display Menu -----------" << endl;
     cout << "How would you like to organize the list?" << endl;
-    cout << "(1) Alphabetical" << endl;
-    cout << "(2) Chronologically" << endl;
-    cout << "(3) By Gender" << endl;
-    cout << "(4) View as is" << endl;
+    cout << "(1) View as is" << endl;
+    cout << "(2) Alphabetical" << endl;
+    cout << "(3) Chronologically" << endl;
+    cout << "(4) By Gender" << endl;
     cout << "(5) Back to main menu" << endl;
     cout << "Enter your choice: " << endl;
 
@@ -151,27 +139,27 @@ void display(int choice, vector <FamousPersons> &vec){
 
     switch(choice)
     {
-
         case 1:
-            //Vantar að klára!
-            Alphabetically();
 
+            displayList(vec);
             break;
 
         case 2:
-            //Vantar að klára!
-            Chronologically();
+
+            Alphabetically(vec);
 
             break;
 
         case 3:
-            //Vantar að klára!
 
+            Chronologically(vec);
 
             break;
 
         case 4:
-            displayList(vec);
+
+
+
             break;
 
         case 5:
@@ -192,20 +180,66 @@ void Alphabetically()
     cout << "Do you want to sort the names by their.." << endl;
     cout << "(1) first name?" << endl;
     cout << "(2) last name?" << endl;
+    cout << "(3) Back to main menu" << endl;
     cin >> choice;
+
+    FamousPersons temp;
 
     switch(choice)
     {
         case 1:
-            //Vantar að klára!
+
+            for(unsigned int i = 0 ; i < vec.size(); i++)
+            {
+                for(unsigned int j = 0; j < (vec.size() - 1); j++)
+                {
+                    if (vec[j].getFirstName() > vec[j+1].getFirstName())
+                    {
+                        temp = vec[j];
+                        vec[j] = vec[j+1];
+                        vec[j+1] = temp;
+                    }
+                }
+            }
+
+            for (unsigned int i = 0; i < vec.size(); i++)
+            {
+                cout << vec[i] << endl;
+            }
+
             break;
         case 2:
-            //Vantar að klára!
+
+            for(unsigned int i = 0 ; i < vec.size(); i++)
+            {
+                for(unsigned int j = 0; j < (vec.size() - 1); j++)
+                {
+                    if (vec[j].getLastName() > vec[j+1].getLastName())
+                    {
+                        temp = vec[j];
+                        vec[j] = vec[j+1];
+                        vec[j+1] = temp;
+                    }
+                }
+            }
+
+            for (unsigned int i = 0; i < vec.size(); i++)
+            {
+                cout << vec[i] << endl;
+            }
+
             break;
+
+        case 3:
+            mainMenu();
+            break;
+
         default:
             cout << "Not a valid choice!" << endl;
             break;
     }
+
+    displayListMenu();
 
 }
 
@@ -216,22 +250,34 @@ void Chronologically()
     cout << "Do you want to sort the persons by their.." << endl;
     cout << "(1) Date of birth?" << endl;
     cout << "(2) Date of death?" << endl;
+    cout << "(3) Back to main menu" << endl;
     cin >> choice;
 
     switch(choice)
     {
         case 1:
-            //Vantar að klára!
+
+            for (unsigned int i = 0; i < vec.size(); i++)
+            {
+
+            }
+
             break;
 
         case 2:
-            //Vantar að klára!
+
+            break;
+
+        case 3:
+            mainMenu();
             break;
 
         default:
             cout << "Not a valid choice!" << endl;
             break;
     }
+
+    displayListMenu();
 
 }
 
@@ -259,7 +305,7 @@ int searchMenu(){
     cout << "(3) ... gender?" << endl;
     cout << "(4) ... year of birth?" << endl;
     cout << "(5) ... year of death?" << endl;
-    cout << "(6) Do you want to go back to main menu or continue searching?" << endl;
+    cout << "(6) Back to main menu" << endl;
     cout << endl;
 
     cin >> choice;
@@ -269,9 +315,6 @@ int searchMenu(){
 
 void searchList(vector <FamousPersons> &vec)
 {
-
-    //vec =
-
     string searchWord = " ";
 
     int choice = searchMenu();
@@ -281,30 +324,16 @@ void searchList(vector <FamousPersons> &vec)
 
     switch(choice)
     {
-
         case 1:
-
-            cout << "for hingad" << endl;
 
             for (unsigned int i = 0; i < vec.size(); i++)
             {
-                string Var = vec[i].getFirstName();
+                string var = vec[i].getFirstName();
 
-                unsigned int pos = 0;
-
-                int j = 0;
-                cout << j << endl;
-                j++;
-
-                pos = searchWord.find(Var);
-
-                if (pos > 0)
+                if (var == searchWord)
                 {
+                    cout << "---------- Search Results ----------" << endl << endl;
                     cout << vec[i] << endl;
-                }
-                else if (pos == 0)
-                {
-                    cout << "Search was not successful!" << endl;
                 }
             }
 
@@ -317,11 +346,8 @@ void searchList(vector <FamousPersons> &vec)
                 string var = vec[i].getLastName();
                 if (searchWord == var)
                 {
+                    cout << "---------- Search Results ----------" << endl << endl;
                     cout << vec[i] << endl;
-                }
-                else
-                {
-                    cout << "Search was not successful!" << endl;
                 }
             }
 
@@ -334,15 +360,13 @@ void searchList(vector <FamousPersons> &vec)
                 string var = vec[i].getGender();
                 if (searchWord == var)
                 {
+                    cout << "---------- Search Results ----------" << endl << endl;
                     cout << vec[i] << endl;
-                }
-                else
-                {
-                    cout << "Search was not successful!" << endl;
                 }
             }
 
             break;
+
         case 4:
 
             for (unsigned int i = 0; i < vec.size(); i++)
@@ -350,15 +374,13 @@ void searchList(vector <FamousPersons> &vec)
                 string var = vec[i].getYearOfBirth();
                 if (searchWord == var)
                 {
+                    cout << "---------- Search Results ----------" << endl << endl;
                     cout << vec[i] << endl;
-                }
-                else
-                {
-                    cout << "Search was not successful!" << endl;
                 }
             }
 
             break;
+
         case 5:
 
             for (unsigned int i = 0; i < vec.size(); i++)
@@ -366,20 +388,23 @@ void searchList(vector <FamousPersons> &vec)
                 string var = vec[i].getYearOfDeath();
                 if (searchWord == var)
                 {
+                    cout << "---------- Search Results ----------" << endl << endl;
                     cout << vec[i] << endl;
-                }
-                else
-                {
-                    cout << "Search was not successful!" << endl;
                 }
             }
 
+            break;
+
+        case 6:
+            mainMenu();
             break;
 
         default:
             cout << "Not a valid choice!";
             break;
     }
+    
+    searchMenu();
 
 }
 
