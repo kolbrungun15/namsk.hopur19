@@ -28,12 +28,10 @@ void searchList(vector <FamousPersons> &vec);
 bool addToList(vector<FamousPersons> &vec);
 void newReadTofile(FamousPersons &temp);
 void readToFile(vector <FamousPersons> &vec);
-<<<<<<< HEAD
 void readFromFile(vector <FamousPersons> &vec);
 bool whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
 bool doYouWantToContinue(); //Spyr hvort notandi vilji halda áfram
-=======
 void readFromFile();
 bool doYouWantToContinue();
 
@@ -42,12 +40,13 @@ bool doYouWantToContinue();
 //------------------------------------------( Main Function )----------------------------------------
 //---------------------------------------------------------------------------------------------------
 
->>>>>>> 2835b6d1d9f21c125a0987ddd39d8a733609e357
-
 int main()
 {
     bool runWhileTrue = true;
     vector<FamousPersons> vec;
+
+    readFromFile(vec);
+
     while(runWhileTrue){
         int firstChoice = mainMenu();
         runWhileTrue = whatToDo(firstChoice, vec);
@@ -437,7 +436,7 @@ void readToFile(vector <FamousPersons> &vec)
 
 void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, thad tharf bara ad laga til, t.d. 'word'
 {
-    int commaCounter = 0;
+
     ifstream in_stream("csLeagends.txt");
     string line;
     string word;
@@ -451,27 +450,33 @@ void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, 
     while(in_stream >> line)
     {
         FamousPersons temp;
+        int commaCounter = 0;
         for(int i = 0; i < line.length(); i++){
             if(line[i] == ','){
                 if(commaCounter == 0){
                      temp.setFirstName(word);
                      commaCounter++;
+                     word = "";
                 }
                 else if(commaCounter == 1){
                     temp.setLastName(word);
                     commaCounter++;
+                    word = "";
                 }
                 else if(commaCounter == 2){
                     temp.setGender(word);
                     commaCounter++;
+                    word = "";
                 }
                 else if(commaCounter == 3){
                     temp.setYearOfBirth(word);
                     commaCounter++;
+                    word = "";
                 }
                 else if(commaCounter == 4){
                     temp.setYearOfDeath(word);
                     commaCounter++;
+                    word = "";
                 }
             }
             else{
@@ -479,24 +484,8 @@ void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, 
             }
         }
         cout << temp;
+        vec.push_back(temp);
     }
-    /*
-        if(asdf == ','){
-            vec[i].setFirstName = word;
-            commaCounter++;
-        }
-        else if(asdf == '.'){
-
-        }
-        else{
-            word += asdf
-        }
-
-
-    */
-
-
-
     in_stream.close();
 }
 
