@@ -173,7 +173,7 @@ void display(int choice, vector <FamousPersons> &vec){
 
 }
 
-void Alphabetically()
+void Alphabetically(vector <FamousPersons> &vec)
 {
     int choice = 0;
 
@@ -243,7 +243,7 @@ void Alphabetically()
 
 }
 
-void Chronologically()
+void Chronologically(vector <FamousPersons> &vec)
 {
     int choice = 0;
 
