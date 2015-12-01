@@ -94,9 +94,12 @@ bool addToList(vector<FamousPersons> &vec)
     cin >> yearOfDeath;
 
     FamousPersons temp(firstName, lastName, gender, yearOfBirth, yearOfDeath);
-    newReadTofile(temp);
-
     vec.push_back(temp);
+
+    for (unsigned int i = 0; i < vec.size(); i++)
+    {
+        newReadTofile(vec[i]);
+    }
 
     char continueYN = 'k';
     cout << "Do you want to continue (y/n)?";
