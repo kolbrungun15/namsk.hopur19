@@ -15,7 +15,7 @@ int displayListMenu();
 void newReadTofile(FamousPersons &temp);
 void searchList();
 void readToFile(vector <FamousPersons> &vec);
-void readFromFile();
+void readFromFile(vector <FamousPersons> &vec);
 bool whatToDo(int choice, vector<FamousPersons> &vec);
 int howManyPersons();
 bool doYouWantToContinue(); //Spyr hvort notandi vilji halda áfram
@@ -119,12 +119,11 @@ void newReadTofile(FamousPersons &temp)
         cout << "Output file opening failed" << endl;
         exit(1);
     }
-    out_stream << "First name: " << temp.getFirstName() << endl;
-    out_stream << "Last name: " << temp.getLastName() << endl;
-    out_stream << "Gender (male/female): " << temp.getGender() << endl;
-    out_stream << "Year of birth: " << temp.getYearOfBirth() << endl;
-    out_stream << "Year of death: " << temp.getYearOfDeath() << endl;
-    out_stream << endl;
+    out_stream << temp.getFirstName() << ","
+               << temp.getLastName() << ","
+               << temp.getGender() << ","
+               << temp.getYearOfBirth() << ","
+               << temp.getYearOfDeath() << "." << endl;
     out_stream.close();
 }
 
@@ -155,20 +154,68 @@ void readToFile(vector <FamousPersons> &vec)
     }
 }
 
-void readFromFile()//þetta skjal skrifar ut a skja, thad tharf bara ad laga til, t.d. 'word'
+void readFromFile(vector <FamousPersons> &vec)//þetta skjal skrifar ut a skja, thad tharf bara ad laga til, t.d. 'word'
 {
+    int commaCounter = 0;
     ifstream in_stream("csLeagends.txt");
+    string line;
     string word;
+
 
     if (in_stream.fail())
     {
         cout << "Input file opening failed" << endl;
         exit(1);
     }
-    while(in_stream >> word)
+    while(in_stream >> line)
     {
-        cout << word << " ";
+        FamousPersons temp;
+        for(int i = 0; i < line.length(); i++){
+            if(line[i] == ','){
+                if(commaCounter == 0){
+                     temp.setFirstName(word);
+                     commaCounter++;
+                }
+                else if(commaCounter == 1){
+                    temp.setLastName(word);
+                    commaCounter++;
+                }
+                else if(commaCounter == 2){
+                    temp.setGender(word);
+                    commaCounter++;
+                }
+                else if(commaCounter == 3){
+                    temp.setYearOfBirth(word);
+                    commaCounter++;
+                }
+                else if(commaCounter == 4){
+                    temp.setYearOfDeath(word);
+                    commaCounter++;
+                }
+            }
+            else{
+                word += line[i];
+            }
+        }
+        cout << temp;
     }
+    /*
+        if(asdf == ','){
+            vec[i].setFirstName = word;
+            commaCounter++;
+        }
+        else if(asdf == '.'){
+
+        }
+        else{
+            word += asdf
+        }
+
+
+    */
+
+
+
     in_stream.close();
 }
 
