@@ -1,0 +1,15 @@
+Ada,Lovelace,female,1815,1852.
+Charles,Babbage,male,1752,1834.
+Konrad,Zuse,male,1910,1995.
+John,Alanasoff,male,1903,1995.
+Clifford,Berry,male,1918,1963.
+Tommy,Flowers,male,1905,1998.
+Max,Newman,male,1897,1984.
+Alan,Turing,male,1912,1954.
+John,Backus,male,1924,2007.
+Grace,Hopper,female,1906,1992.
+Peter,Naur,male,1928,N/A.
+Sophie,Wilson,female,1957,N/A.
+Stephen, Kleene, male, 1909, 1994.
+Mark,Zuckerberg,male,1984,N/A.
+Edith,Clarke,female,1883,1959.
