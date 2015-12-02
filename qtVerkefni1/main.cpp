@@ -523,9 +523,9 @@ void readFromFile(vector <FamousPersons> &vec) //Þetta fall skrifar skránna in
                 word += line[i];
             }
         }
-        cout << temp;
+
         vec.push_back(temp); //Eftir að búið er að setja línuna í viðeigandi breytur í temp, er því bætt við aftast í vectorinn
-        vec.push_back(temp);
+
     }
     in_stream.close(); //Straumnum er síðan lokað í lokin
 }
