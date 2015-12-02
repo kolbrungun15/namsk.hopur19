@@ -16,17 +16,14 @@ using namespace std;
 
 void mainMenu(vector<FamousPersons> &PersonVector);
 void whatToDo(int choice, vector<FamousPersons> &vec);
-
 void displayListMenu(vector <FamousPersons> &vec);
 void display(int choice, vector <FamousPersons> &vec);
 void Alphabetically(vector <FamousPersons> &vec);
 void Chronologically(vector <FamousPersons> &vec);
 void Gender(vector <FamousPersons> &vec);
 void displayList(vector <FamousPersons> &vec);
-
 int searchMenu();
 void searchList(vector <FamousPersons> &vec);
-
 bool addToList(vector<FamousPersons> &vec);
 void readToFile(FamousPersons &temp);
 void readFromFile(vector <FamousPersons> &vec);
@@ -56,7 +53,6 @@ int main()
 
 void mainMenu(vector<FamousPersons> &vec)
 {
-
     int choice = 0;
 
     cout << endl << endl;
@@ -76,33 +72,24 @@ void mainMenu(vector<FamousPersons> &vec)
 void whatToDo(int choice, vector<FamousPersons> &vec)
 {
     int nr = 0;
-
     bool result = true;
+
     switch(choice)
     {
-
         case 1:
-
             while(result)
             {
                 result = addToList(vec);
             }
             break;
-
         case 2:
             displayListMenu(vec);
-
             break;
-
         case 3:
             searchList(vec);
-
             break;
-
         case 4:
-
             exit(1);
-
         default:
             cout << "Not a valid choice!" << endl;
             break;
@@ -139,26 +126,17 @@ void display(int choice, vector <FamousPersons> &vec){
     switch(choice)
     {
         case 1:
-
             displayList(vec);
             break;
-
         case 2:
-
             Alphabetically(vec);
-
             break;
-
         case 3:
-
             Gender(vec);
-
             break;
-
         case 4:
             mainMenu(vec);
             break;
-
         default:
             cout << "Not a valid choice!" << endl;
             break;
@@ -182,7 +160,6 @@ void Alphabetically(vector <FamousPersons> &vec)
     switch(choice)
     {
         case 1:
-
             for(unsigned int i = 0 ; i < vec.size(); i++)
             {
                 for(unsigned int j = 0; j < (vec.size() - 1); j++)
@@ -200,10 +177,8 @@ void Alphabetically(vector <FamousPersons> &vec)
             {
                 cout << vec[i] << endl;
             }
-
             break;
         case 2:
-
             for(unsigned int i = 0 ; i < vec.size(); i++)
             {
                 for(unsigned int j = 0; j < (vec.size() - 1); j++)
@@ -221,9 +196,7 @@ void Alphabetically(vector <FamousPersons> &vec)
             {
                 cout << vec[i] << endl;
             }
-
             break;
-
         default:
             cout << "Not a valid choice!" << endl;
             break;
@@ -319,7 +292,6 @@ void searchList(vector <FamousPersons> &vec)
     switch(choice)
     {
         case 1:
-
             for (unsigned int i = 0; i < vec.size(); i++)
             {
                 string var = vec[i].getFirstName();
@@ -332,9 +304,7 @@ void searchList(vector <FamousPersons> &vec)
             }
 
             break;
-
         case 2:
-
             for (unsigned int i = 0; i < vec.size(); i++)
             {
                 string var = vec[i].getLastName();
@@ -346,9 +316,7 @@ void searchList(vector <FamousPersons> &vec)
             }
 
             break;
-
         case 3:
-
             for (unsigned int i = 0; i < vec.size(); i++)
             {
                 string var = vec[i].getGender();
@@ -358,11 +326,8 @@ void searchList(vector <FamousPersons> &vec)
                     cout << vec[i] << endl;
                 }
             }
-
             break;
-
         case 4:
-
             for (unsigned int i = 0; i < vec.size(); i++)
             {
                 string var = vec[i].getYearOfBirth();
@@ -372,11 +337,8 @@ void searchList(vector <FamousPersons> &vec)
                     cout << vec[i] << endl;
                 }
             }
-
             break;
-
         case 5:
-
             for (unsigned int i = 0; i < vec.size(); i++)
             {
                 string var = vec[i].getYearOfDeath();
@@ -386,13 +348,10 @@ void searchList(vector <FamousPersons> &vec)
                     cout << vec[i] << endl;
                 }
             }
-
             break;
-
         case 6:
             mainMenu(vec);
             break;
-
         default:
             cout << "Not a valid choice!";
             break;
@@ -463,7 +422,6 @@ void readFromFile(vector <FamousPersons> &vec)
     ifstream in_stream("csLeagends.txt");
     string line;
     string word;
-
 
     if (in_stream.fail())
     {
