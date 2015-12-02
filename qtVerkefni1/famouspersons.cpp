@@ -93,7 +93,6 @@ istream& operator >>(istream& ins, FamousPersons &n)
     ins >> n.gender;
     ins >> n.yearOfBirth;
     ins >> n.yearOfDeath;
-
     return ins;
 }
 */

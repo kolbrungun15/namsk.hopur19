@@ -15,7 +15,7 @@ public:
     FamousPersons(string newFirstName, string newLastName, string newGender, string whenBorn, string whenDied);
 
     void setFirstName(string newFirstName);
-    void setLastName(string newLastName); //otharft?
+    void setLastName(string newLastName);
     string getFirstName();
     string getLastName();
     void setGender(string newGender); //otharft?
