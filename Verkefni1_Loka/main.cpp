@@ -297,9 +297,10 @@ void searchMenu(vector <FamousPersons> &vec){
     cout << "----------- Search Menu -----------" << endl;
     cout << "(1) Do you want to search by First name?" << endl;
     cout << "(2) ... Last name?" << endl;
-    cout << "(3) ... year of birth?" << endl;
-    cout << "(4) ... year of death?" << endl;
-    cout << "(5) Back to main menu" << endl << endl;
+    cout << "(3) ... Gender?" << endl;
+    cout << "(4) ... year of birth?" << endl;
+    cout << "(5) ... year of death?" << endl;
+    cout << "(6) Back to main menu" << endl << endl;
 
     cin >> choice;
 
@@ -348,7 +349,7 @@ void searchList(int choice, vector <FamousPersons> &vec)
 
             for (unsigned int i = 0; i < vec.size(); i++)
             {
-                string var = vec[i].getYearOfBirth();
+                string var = vec[i].getGender();
                 if (searchWord == var)
                 {
                     cout << "---------- Search Results ----------" << endl << endl;
@@ -362,7 +363,7 @@ void searchList(int choice, vector <FamousPersons> &vec)
 
             for (unsigned int i = 0; i < vec.size(); i++)
             {
-                string var = vec[i].getYearOfDeath();
+                string var = vec[i].getYearOfBirth();
                 if (searchWord == var)
                 {
                     cout << "---------- Search Results ----------" << endl << endl;
@@ -373,6 +374,20 @@ void searchList(int choice, vector <FamousPersons> &vec)
             break;
 
         case 5:
+
+            for (unsigned int i = 0; i < vec.size(); i++)
+            {
+                string var = vec[i].getYearOfDeath();
+                if (searchWord == var)
+                {
+                    cout << "---------- Search Results ----------" << endl << endl;
+                    cout << vec[i] << endl;
+                }
+            }
+
+            break;
+
+        case 6:
             mainMenu(vec);
             break;
 
